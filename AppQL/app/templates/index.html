@@ -20,7 +20,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav me-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Trang chu</a>
                 </li>
@@ -30,6 +30,10 @@
                 </li>
                 {% endfor %}
             </ul>
+            <form class="d-flex" method="get" action="/">
+                <input class="form-control me-2" name="kw" type="text" placeholder="nhập từ khóa....">
+                <button class="btn btn-primary" type="submit">Tìm</button>
+            </form>
         </div>
     </div>
 </nav>
@@ -44,7 +48,7 @@
                     <h4 class="card-title">{{ p.name }} </h4>
                     <p class="card-text">{{ p.price }}</p>
                     <a href="#" class="btn btn-primary">{{ p.price }}</a>
-                    <a href="#" class="btn btn-danger">DAT
+                    <a href="#" class="btn btn-danger">Đặt
                         <HANG></HANG>
                     </a>
                 </div>

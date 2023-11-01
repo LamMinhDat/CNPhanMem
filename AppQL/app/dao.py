@@ -7,7 +7,7 @@ def get_categories():
         "name": "Tablet"
     }]
 
-def get_products():
+def get_products( kw ):
     products = [{
         "id": 1,
         "name": "Iphone 13",
@@ -35,4 +35,6 @@ def get_products():
         "image":"https://res.cloudinary.com/dxxwcby8l/image/upload/v1688179242/hclq65mc6so7vdrbp7hz.jpg"
     }]
 
+    if kw:
+        products = [p for p in products if p['name'].find(kw) >= 0]
     return products
