@@ -9,6 +9,9 @@ class Category(db.Model):
     name = Column(String(50), nullable=False, unique=True)
     products = relationship('Product', backref='category', lazy=True)
 
+    def __str__(self):
+        return self.name
+
 class Product(db.Model):
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(50), nullable=False, unique=True)
@@ -16,13 +19,16 @@ class Product(db.Model):
     image = Column(String(100))
     category_id = Column(Integer, ForeignKey(Category.id), nullable=False)
 
+    def __str__(self):
+        return self.name
+
 if __name__ == '__main__':
     with app.app_context():
          db.create_all()
-    #     c1 = Category(name='Mobile')
-    #     c2 = Category(name='Tablet')
-    #
-    #     db.session.add(c1)
-    #     db.session.add(c2)
-    #     db.session.commit()
+         c1 = Category(name='Mobile')
+         c2 = Category(name='Tablet')
+
+         db.session.add(c1)
+         db.session.add(c2)
+         db.session.commit()
 
